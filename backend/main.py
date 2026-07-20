@@ -134,8 +134,8 @@ def resize_image(image_bytes: bytes) -> bytes:
     print(f"[RESIZE] Original dimensions: {img.size}, mode: {img.mode}")
     w, h = img.size
     min_side = min(w, h)
-    if min_side < 480:
-        scale = 480 / min_side
+    if min_side < 600:
+        scale = 600 / min_side
         new_w = int(w * scale)
         new_h = int(h * scale)
         img = img.resize((new_w, new_h), Image.LANCZOS)
