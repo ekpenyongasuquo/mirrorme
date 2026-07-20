@@ -30,18 +30,42 @@ groq_client = Groq(api_key=GROQ_API_KEY)
 GARMENT_CATALOG = [
     {
         "id": "g001",
-        "name": "Emerald Wrap Dress",
-        "color": "Emerald Green",
-        "color_hex": "#2E8B57",
-        "neckline": "V-neck wrap",
-        "fabric": "Satin",
+        "name": "Beige Elegant Outfit",
+        "color": "Warm Beige",
+        "color_hex": "#C8A882",
+        "neckline": "Classic crew",
+        "fabric": "Cotton blend",
         "category": "full_body",
         "price": "$89",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_reference_full_body_01_5a000d999f.png",
-        "tags": ["formal", "evening", "bold"]
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
+        "tags": ["casual", "elegant", "neutral"]
     },
     {
         "id": "g002",
+        "name": "Cobalt Blue Blouse",
+        "color": "Cobalt Blue",
+        "color_hex": "#0047AB",
+        "neckline": "Relaxed V-neck",
+        "fabric": "Silk blend",
+        "category": "upper_body",
+        "price": "$72",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583226/pexels-saulo-leite-1491182-17502689_icspnp.jpg",
+        "tags": ["office", "bold", "jewel tone"]
+    },
+    {
+        "id": "g003",
+        "name": "Red Statement Dress",
+        "color": "Deep Red",
+        "color_hex": "#8B0000",
+        "neckline": "Scoop neck",
+        "fabric": "Jersey",
+        "category": "full_body",
+        "price": "$95",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583224/pexels-wayne-fotografias-1812121-14924694_gxbe1f.jpg",
+        "tags": ["bold", "evening", "statement"]
+    },
+    {
+        "id": "g004",
         "name": "Ivory Linen Blouse",
         "color": "Soft Ivory",
         "color_hex": "#FFFFF0",
@@ -53,7 +77,7 @@ GARMENT_CATALOG = [
         "tags": ["casual", "daywear", "soft"]
     },
     {
-        "id": "g003",
+        "id": "g005",
         "name": "Burgundy Midi Dress",
         "color": "Deep Burgundy",
         "color_hex": "#800020",
@@ -61,32 +85,8 @@ GARMENT_CATALOG = [
         "fabric": "Jersey",
         "category": "full_body",
         "price": "$75",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_reference_full_body_01_5a000d999f.png",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583224/pexels-wayne-fotografias-1812121-14924694_gxbe1f.jpg",
         "tags": ["smart casual", "versatile", "rich tone"]
-    },
-    {
-        "id": "g004",
-        "name": "Cobalt Blue Shift",
-        "color": "Cobalt Blue",
-        "color_hex": "#0047AB",
-        "neckline": "Boat neck",
-        "fabric": "Cotton blend",
-        "category": "full_body",
-        "price": "$68",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_reference_full_body_01_5a000d999f.png",
-        "tags": ["office", "structured", "jewel tone"]
-    },
-    {
-        "id": "g005",
-        "name": "Blush Rose Cardigan",
-        "color": "Blush Rose",
-        "color_hex": "#FFB6C1",
-        "neckline": "Open front",
-        "fabric": "Soft knit",
-        "category": "upper_body",
-        "price": "$62",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_03_cccd5d4803.jpeg",
-        "tags": ["layering", "gentle", "soft tone"]
     },
     {
         "id": "g006",
@@ -97,7 +97,7 @@ GARMENT_CATALOG = [
         "fabric": "Wool blend",
         "category": "full_body",
         "price": "$145",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_reference_full_body_01_5a000d999f.png",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
         "tags": ["power dressing", "formal", "neutral"]
     },
     {
@@ -109,7 +109,7 @@ GARMENT_CATALOG = [
         "fabric": "Linen",
         "category": "full_body",
         "price": "$98",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_reference_full_body_01_5a000d999f.png",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
         "tags": ["earthy", "summer", "warm tone"]
     },
     {
@@ -121,7 +121,7 @@ GARMENT_CATALOG = [
         "fabric": "Silk blend",
         "category": "upper_body",
         "price": "$72",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_03_cccd5d4803.jpeg",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583226/pexels-saulo-leite-1491182-17502689_icspnp.jpg",
         "tags": ["classic", "versatile", "cool tone"]
     }
 ]
@@ -134,8 +134,8 @@ def resize_image(image_bytes: bytes) -> bytes:
     print(f"[RESIZE] Original dimensions: {img.size}, mode: {img.mode}")
     w, h = img.size
     min_side = min(w, h)
-    if min_side < 500:
-        scale = 500 / min_side
+    if min_side < 480:
+        scale = 480 / min_side
         new_w = int(w * scale)
         new_h = int(h * scale)
         img = img.resize((new_w, new_h), Image.LANCZOS)
