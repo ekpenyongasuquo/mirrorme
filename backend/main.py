@@ -30,15 +30,15 @@ groq_client = Groq(api_key=GROQ_API_KEY)
 GARMENT_CATALOG = [
     {
         "id": "g001",
-        "name": "Beige Elegant Outfit",
-        "color": "Warm Beige",
-        "color_hex": "#C8A882",
-        "neckline": "Classic crew",
+        "name": "Brown Turtleneck Top",
+        "color": "Warm Brown",
+        "color_hex": "#8B5E3C",
+        "neckline": "Turtleneck",
         "fabric": "Cotton blend",
-        "category": "full_body",
-        "price": "$89",
+        "category": "upper_body",
+        "price": "$65",
         "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
-        "tags": ["casual", "elegant", "neutral"]
+        "tags": ["casual", "warm tone", "cozy"]
     },
     {
         "id": "g002",
@@ -134,8 +134,8 @@ def resize_image(image_bytes: bytes) -> bytes:
     print(f"[RESIZE] Original dimensions: {img.size}, mode: {img.mode}")
     w, h = img.size
     min_side = min(w, h)
-    if min_side < 600:
-        scale = 600 / min_side
+    if min_side < 480:
+        scale = 480 / min_side
         new_w = int(w * scale)
         new_h = int(h * scale)
         img = img.resize((new_w, new_h), Image.LANCZOS)
