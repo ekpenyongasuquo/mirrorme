@@ -66,63 +66,63 @@ GARMENT_CATALOG = [
     },
     {
         "id": "g004",
-        "name": "Ivory Linen Blouse",
-        "color": "Soft Ivory",
-        "color_hex": "#FFFFF0",
-        "neckline": "Relaxed crew",
-        "fabric": "Linen",
-        "category": "upper_body",
-        "price": "$55",
-        "image_url": "https://plugins-media.makeupar.com/strapi/assets/clothes_03_cccd5d4803.jpeg",
-        "tags": ["casual", "daywear", "soft"]
+        "name": "Classic White Dress",
+        "color": "Pure White",
+        "color_hex": "#FFFFFF",
+        "neckline": "Round neck",
+        "fabric": "Cotton",
+        "category": "full_body",
+        "price": "$78",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784588273/pexels-andrea-musto-135941147-27641317_tz7vna.jpg",
+        "tags": ["clean", "minimal", "versatile"]
     },
     {
         "id": "g005",
-        "name": "Burgundy Midi Dress",
-        "color": "Deep Burgundy",
-        "color_hex": "#800020",
-        "neckline": "Scoop neck",
+        "name": "Sleek Black Dress",
+        "color": "Jet Black",
+        "color_hex": "#0a0a0a",
+        "neckline": "V-neck",
         "fabric": "Jersey",
         "category": "full_body",
-        "price": "$75",
-        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583224/pexels-wayne-fotografias-1812121-14924694_gxbe1f.jpg",
-        "tags": ["smart casual", "versatile", "rich tone"]
+        "price": "$88",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784588307/pexels-andrea-musto-135941147-28986636_coifq5.jpg",
+        "tags": ["classic", "formal", "elegant"]
     },
     {
         "id": "g006",
-        "name": "Charcoal Wide-Leg Suit",
-        "color": "Charcoal",
-        "color_hex": "#36454F",
-        "neckline": "Lapel collar",
-        "fabric": "Wool blend",
-        "category": "full_body",
-        "price": "$145",
-        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
-        "tags": ["power dressing", "formal", "neutral"]
+        "name": "Sunshine Yellow Top",
+        "color": "Sunshine Yellow",
+        "color_hex": "#FFD700",
+        "neckline": "Crew neck",
+        "fabric": "Cotton blend",
+        "category": "upper_body",
+        "price": "$55",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784588308/pexels-darina-belonogova-8789355_fhzpd0.jpg",
+        "tags": ["bright", "casual", "warm tone"]
     },
     {
         "id": "g007",
-        "name": "Terracotta Linen Set",
-        "color": "Terracotta",
-        "color_hex": "#E2725B",
-        "neckline": "Relaxed V",
-        "fabric": "Linen",
+        "name": "Navy Blue Dress",
+        "color": "Deep Navy",
+        "color_hex": "#000080",
+        "neckline": "Boat neck",
+        "fabric": "Crepe",
         "category": "full_body",
-        "price": "$98",
-        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583228/pexels-dima-valkov-1186343-6211619_yhiy70.jpg",
-        "tags": ["earthy", "summer", "warm tone"]
+        "price": "$92",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784588309/pexels-gustavo-10324425_lz3zr7.jpg",
+        "tags": ["cool tone", "office", "jewel tone"]
     },
     {
         "id": "g008",
-        "name": "Navy Wrap Blouse",
-        "color": "Navy",
-        "color_hex": "#000080",
-        "neckline": "Deep V wrap",
-        "fabric": "Silk blend",
-        "category": "upper_body",
-        "price": "$72",
-        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784583226/pexels-saulo-leite-1491182-17502689_icspnp.jpg",
-        "tags": ["classic", "versatile", "cool tone"]
+        "name": "Emerald Green Dress",
+        "color": "Emerald Green",
+        "color_hex": "#2E8B57",
+        "neckline": "Wrap neck",
+        "fabric": "Satin blend",
+        "category": "full_body",
+        "price": "$105",
+        "image_url": "https://res.cloudinary.com/tqvpvmwn/image/upload/v1784588309/pexels-kooldark-29995624_ivvrfm.jpg",
+        "tags": ["jewel tone", "evening", "bold"]
     }
 ]
 
@@ -135,7 +135,7 @@ def resize_image(image_bytes: bytes) -> bytes:
     w, h = img.size
     min_side = min(w, h)
     if min_side < 600:
-        scale = 600 / min_side
+        scale = 600/ min_side
         new_w = int(w * scale)
         new_h = int(h * scale)
         img = img.resize((new_w, new_h), Image.LANCZOS)
